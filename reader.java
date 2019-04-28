@@ -41,7 +41,7 @@ public class reader {
 		while ((st2 = duplicateChecker.readLine()) != null){
 			
 			if(acrossCount == 2 || downCount ==2){
-				System.out.println("there is a duplicate of 'ACROSS' or 'DOWN'!");
+				//System.out.println("there is a duplicate of 'ACROSS' or 'DOWN'!");
 				return false;
 			}
 			if(st2.equals("ACROSS")){
@@ -78,14 +78,14 @@ public class reader {
 		
 		int index = 0;
 		if(results.size()==0){
-			System.out.println("There are no files");
+			//System.out.println("There are no files");
 		}else if(results.size()==1){
-			System.out.println("There is one file, it is "+files[0].getName());
+			//System.out.println("There is one file, it is "+files[0].getName());
 			filename = results.get(0);
 		}else{
-			System.out.println("Going to randomly choose a file");
+			//System.out.println("Going to randomly choose a file");
 			filename = getRandomFile(results);
-			System.out.println("Chose "+filename);
+			//System.out.println("Chose "+filename);
 		}
 		
 		File file = new File("./gamedata/"+filename);
@@ -107,13 +107,13 @@ public class reader {
 						results.remove(i);
 						String file_replacement = getRandomFile(results);
 						file = new File("./gamedata/"+file_replacement);
-						System.out.println("The file is malformed so I'm gonna remove it from my list ");
-						System.out.println("And then try to find a new file for you!");
+						//System.out.println("The file is malformed so I'm gonna remove it from my list ");
+						//System.out.println("And then try to find a new file for you!");
 						continue;
 					}
 				}
 			}else{
-				System.out.println(file.getName()+" is a healthy file!");
+				//System.out.println(file.getName()+" is a healthy file!");
 				break;
 			}
 		}
@@ -127,13 +127,13 @@ public class reader {
 		
 		
 		String st; 
-		System.out.println("About to read!");
-		System.out.println("|||||||||||||||||||||||");
+		//System.out.println("About to read!");
+		//System.out.println("|||||||||||||||||||||||");
 		
 		
 		while ((st = br.readLine()) != null){
 			
-			System.out.println("Reading: "+st);
+			//System.out.println("Reading: "+st);
 			if(st.equals("ACROSS")){
 					st=br.readLine();
 					while(!(st.equals("DOWN"))){
@@ -147,9 +147,9 @@ public class reader {
 						ansQ.add(question);
 						across.put(number_int, ansQ);
 						st=br.readLine();
-						System.out.println("Adding "+number+", "+answer+", "+question+"...to across!");
+						//System.out.println("Adding "+number+", "+answer+", "+question+"...to across!");
 					}
-					System.out.println("Reading: "+st);
+					//System.out.println("Reading: "+st);
 					st=br.readLine();
 					while(st!=null){
 						StringTokenizer myST = new StringTokenizer(st, "|");
@@ -162,12 +162,12 @@ public class reader {
 						ansQ.add(question);
 						down.put(number_int, ansQ);
 						st=br.readLine();
-						System.out.println("Adding "+number+", "+answer+", "+question+"...to down!");
+						//System.out.println("Adding "+number+", "+answer+", "+question+"...to down!");
 					}
 					break;
 			}
 			if(st.equals("DOWN")){
-				System.out.println("Reading: "+st);
+				//System.out.println("Reading: "+st);
 				st=br.readLine();
 				while(!st.equals("ACROSS")){
 					StringTokenizer myST = new StringTokenizer(st, "|");
@@ -180,9 +180,9 @@ public class reader {
 					ansQ.add(question);
 					down.put(number_int, ansQ);
 					st=br.readLine();
-					System.out.println("Adding "+number+", "+answer+", "+question+"...to down!");
+					//System.out.println("Adding "+number+", "+answer+", "+question+"...to down!");
 				}
-				System.out.println("Reading: "+st);
+				//System.out.println("Reading: "+st);
 				st=br.readLine();
 				
 				while(st!=null){
@@ -196,12 +196,12 @@ public class reader {
 					ansQ.add(question);
 					across.put(number_int, ansQ);
 					st=br.readLine();
-					System.out.println("Adding "+number+", "+answer+", "+question+"...to down!");
+					//System.out.println("Adding "+number+", "+answer+", "+question+"...to down!");
 				}
 				break;
 			}
 		  
 		}
-		System.out.println("|||||||||||||||||||||||");
+		//System.out.println("|||||||||||||||||||||||");
 	} 
 }

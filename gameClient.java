@@ -42,15 +42,22 @@ public class gameClient extends Thread {
 		try {
 			String question = br.readLine();
 			System.out.print(question);
-			while(!question.equals("GAME_OVER")) {
+            Scanner in3 = new Scanner(System.in);
+            while(!question.equals("GAME_OVER")) {
 				if(question.equals("How many players will be playing?")) {
-					Scanner in3 = new Scanner(System.in);
 					String response = in3.nextLine();
 					sendMessage("Num:" + response);
 				}
-				if(!question.equals("")){
+				else if(!question.equals("")){
 					System.out.println(question);
-				}
+				}else if(question.equals("Would you like to answer a question across(a) or down(d)?")){
+				    System.out.println(question);
+                    String response = in3.nextLine();
+                    sendMessage("ANS:" + response);
+                }else{
+                    System.out.println(question);
+                }
+
 				question = br.readLine();
 			}
 		} catch (IOException ioe) {

@@ -5,15 +5,28 @@ import java.util.Vector;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Map;
+
+
 
 public class gameChatRoom {
+	public boolean gameLoaded = false;
 	private Vector<ServerThread> serverThreads;
 	private Vector<Lock> locks;
 	private Vector<Condition> conditions;
 	private int ClientCount;
 	private gameClient firstClient;
 	private int MaxCount;
-	public name;
+	private ArrayList<String> acrossWords;
+	private ArrayList<String> downWords;
+	private Map<Integer, ArrayList<String> > across = new HashMap<Integer, ArrayList<String> >();
+	private Map<Integer, ArrayList<String> > down = new HashMap<Integer, ArrayList<String> >();
+	public Board b;
+	public Board copy;
 
 	public int currentGameSize(){
 		return serverThreads.size();
@@ -29,6 +42,9 @@ public class gameChatRoom {
 		}
 		if(serverThreads.size()==1 && MaxCount==3){
 			myString = "Waiting for players 2 & 3";
+		}
+		if(serverThreads.size()==1 && MaxCount==1){
+			myString = "Everyone is in the game";
 		}
 		return myString;
 	}
@@ -67,12 +83,63 @@ public class gameChatRoom {
 				}
 				serverThreads.add(st);
 
+				//if it is full///
 				if(serverThreads.size()==MaxCount){
 					System.out.println("Game Now Begin");
 					System.out.println();
 					System.out.println("Sending Game Board.");
+					reader r = new reader();
+					try{
+						r.readRandomFile();
+						across = r.getAcrossMap();
+						down = r.getDownMap();
+					}catch(Exception e){
+						System.out.println("Couldn't parse");
+					}
 
-					broadcast("INSERT THE BOARD HERE");
+					try{
+						b = new Board();
+						copy = b;
+						copy.removeLetters();
+						broadcast("The game is beginning.");
+						for(int j=copy.actual_top; j<=copy.actual_bottom; j++){
+							String x = " ";
+							for(int i=copy.actual_left; i<=copy.actual_right; i++){
+								x=x+copy.boardLayout.get(j).get(i)+" ";
+							}
+							//System.out.println(x);
+							broadcast(x);
+						}
+
+						Iterator<Map.Entry<Integer, ArrayList<String> >> itr_A = this.across.entrySet().iterator();
+						Iterator<Map.Entry<Integer, ArrayList<String> >> itr_D = this.down.entrySet().iterator();
+
+						broadcast("ACROSS");
+						while(itr_A.hasNext()) {
+							Map.Entry<Integer, ArrayList<String> > entry = itr_A.next();
+							String place_number =String.valueOf(entry.getKey());
+							String q = entry.getValue().get(1);
+							broadcast(place_number+" "+q);
+							///if both of them have the key then they intersect
+						}
+						broadcast("DOWN");
+						while(itr_D.hasNext()) {
+							Map.Entry<Integer, ArrayList<String> > entry = itr_D.next();
+							String place_number =String.valueOf(entry.getKey());
+							String q = entry.getValue().get(1);
+							broadcast(place_number+" "+q);
+						}
+
+
+						gameLoaded=true;
+						ClientCount=-1;
+						goNextClient();
+
+					}catch(Exception e){
+						broadcast("There was an issue making the board");
+					}
+
+					//broadcast("INSERT THE BOARD HERE");
 				}
 
 				locks.add(newLock);
@@ -92,11 +159,13 @@ public class gameChatRoom {
 
 
 	//this will send a message to all the people that are playing
+
+
 	public void broadcast(String message) {
 		if (message != null) {
-			System.out.println(message + " size of serverthreads: " +  serverThreads.size());
+			//System.out.println(message + " size of serverthreads: " +  serverThreads.size());
 			for(int i = 0; i < serverThreads.size(); i++) {
-				System.out.println("Serverthread: " + i);
+				//System.out.println("Serverthread: " + i);
 					serverThreads.get(i).sendMessage(message);
 			}
 		}
@@ -118,11 +187,13 @@ public class gameChatRoom {
 
 	//this will move onto the next client
 	public void goNextClient(){
+
 		ClientCount +=1;
 		if(ClientCount == locks.size()){
 			//then the client is the only one left
 			ClientCount=0;
 		}
+		System.out.println("ROTATING TO CLIENT: "+ClientCount);
 		locks.get(ClientCount).lock();
 		conditions.get(ClientCount).signal();
 		locks.get(ClientCount).unlock();
