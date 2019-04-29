@@ -9,10 +9,11 @@ public class gameClient extends Thread {
 
 	private BufferedReader br;
 	private PrintWriter pw;
+	public int score;
 
 
 	public void sendMessage(String message) {
-		System.out.println("In Client: " + message);
+		//System.out.println("In Client: " + message);
 		pw.println(message);
 		pw.flush();
 	}
@@ -20,6 +21,7 @@ public class gameClient extends Thread {
 
 
 	public gameClient(String hostname, int port) {
+	    score=0;
 		try {
 			System.out.println("Trying to connect to " + hostname + ":" + port);
 			Socket s = new Socket(hostname, port);
@@ -43,23 +45,52 @@ public class gameClient extends Thread {
 			String question = br.readLine();
 			System.out.print(question);
             Scanner in3 = new Scanner(System.in);
-            while(!question.equals("GAME_OVER")) {
+            while(!question.contains("GAME_OVER")) {
 				if(question.equals("How many players will be playing?")) {
-					String response = in3.nextLine();
+					String response = in3.next();
 					sendMessage("Num:" + response);
 				}
-				else if(!question.equals("")){
-					System.out.println(question);
-				}else if(question.equals("Would you like to answer a question across(a) or down(d)?")){
-				    System.out.println(question);
-                    String response = in3.nextLine();
+				else if(question.equals("ASKMEAGAIN")){
+				    sendMessage("ASKMEAGAIN");
+                }
+				else if(question.contains("WORD_GUESS:")){
+				    System.out.println(question.substring(11,question.length()));
+                    String response = in3.next();
+                    sendMessage("FINAL_GUESS:" + response);
+                }
+				else if(question.contains("Q1:")){
+				    System.out.println(question.substring(3, question.length()));
+                    String response = in3.next();
                     sendMessage("ANS:" + response);
-                }else{
+                }else if(question.contains("QA:")) {
+                    System.out.println(question.substring(3, question.length()));
+                    int response = in3.nextInt();
+                    sendMessage("FINAL_A:" + response);
+                }
+                else if(question.contains("QD:")) {
+                    System.out.println(question.substring(3, question.length()));
+                    int response = in3.nextInt();
+                    sendMessage("FINAL_D:" + response);
+                }else if(question.contains("COR:")){
+				    score++;
+				    question = question.substring(4, question.length());
+				    System.out.println(question);
+                }else if(question.contains("X:")){
+                    question = question.substring(2, question.length());
                     System.out.println(question);
                 }
-
-				question = br.readLine();
+                else{
+                    System.out.println(question);
+                }
+                question = br.readLine();
 			}
+
+//            question=question.substring(9,question.length());
+//            String mine = String.valueOf(question);
+//            System.out.println("Player "+mine+" - "+question+" correct answers.")
+			///this means that GAME_OVER was sent if it goes here////
+
+
 		} catch (IOException ioe) {
 			System.out.println("ioe in ChatClient.run(): " + ioe.getMessage());
 		}

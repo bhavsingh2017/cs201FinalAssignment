@@ -27,8 +27,8 @@ public class Board implements Serializable {
             new ArrayList<Pair<ArrayList<Integer>, String> >();
 
 	
-	private Map<Integer, ArrayList<String> > across = new HashMap<Integer, ArrayList<String> >();
-	private Map<Integer, ArrayList<String> > down = new HashMap<Integer, ArrayList<String> >();
+	public Map<Integer, ArrayList<String> > across = new HashMap<Integer, ArrayList<String> >();
+	public Map<Integer, ArrayList<String> > down = new HashMap<Integer, ArrayList<String> >();
 	public ArrayList<ArrayList<String> > boardLayout = new ArrayList<ArrayList<String> >();
 
     private ArrayList<String> acrossWords = new ArrayList<String>();
@@ -920,8 +920,51 @@ public class Board implements Serializable {
 //        System.out.println("AR: "+actual_right);
 //        System.out.println("AT: "+actual_top);
 //        System.out.println("AB: "+actual_bottom);
-
 //        printPretty();
+    }
+
+    public void revealWordAt(int loc, String word, boolean down){
+	    //hello//
+        if(word.equals(" ") || word.equals("  ")) return;
+
+        System.out.println("Going to reveal "+word+" at "+loc);
+
+        int treasure_x = 0;
+        int treasure_y = 0;
+        for(int j=actual_top; j<=actual_bottom; j++){
+            for(int i=actual_left; i<=actual_right; i++){
+                String val = boardLayout.get(j).get(i).substring(0,1);
+                if(!val.equals(" ")){
+                    if(loc == Integer.valueOf(val)){
+                        treasure_x = i;
+                        treasure_y = j;
+                    }
+                }
+
+            }
+        }
+
+        //found the locations//
+        if(down){
+            for(int k=0; k<word.length(); k++){
+               String curr = boardLayout.get(treasure_y+k).get(treasure_x+k);
+               if(curr.equals(word.substring(k,k+1))){
+                   continue;
+               }
+               String new_val = curr.substring(0,1)+word.substring(k, k+1);
+               boardLayout.get(treasure_y+k).set(treasure_x, new_val);
+            }
+        }else{
+            for(int k=0; k<word.length(); k++){
+                String curr = boardLayout.get(treasure_y+k).get(treasure_x+k);
+                if(curr.equals(word.substring(k,k+1))){
+                    continue;
+                }
+                String new_val = curr.substring(0,1)+word.substring(k, k+1);
+                boardLayout.get(treasure_y).set(treasure_x+k, new_val);
+            }
+        }
+
     }
 
 

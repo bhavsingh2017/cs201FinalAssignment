@@ -11,10 +11,6 @@
       <change beforePath="$PROJECT_DIR$/gameChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/gameClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/reader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/reader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameChatRoom.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gameChatRoom.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gameChatRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="285">
+              <caret line="164" column="29" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,8 +48,8 @@
       <file leaf-file-name="gameClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gameClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-210">
-              <caret line="52" column="100" lean-forward="true" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="100" />
+            <state relative-caret-position="600">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,23 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ServerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2595">
-              <caret line="204" column="10" selection-start-line="204" selection-start-column="10" selection-end-line="204" selection-end-column="10" />
+            <state relative-caret-position="525">
+              <caret line="188" column="46" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,8 +72,8 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="274" column="21" lean-forward="true" selection-start-line="274" selection-start-column="21" selection-end-line="274" selection-end-column="21" />
+            <state relative-caret-position="375">
+              <caret line="131" column="4" lean-forward="true" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#234#263#0" expanded="true" />
@@ -112,11 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>--</find>
-      <find>get</find>
-      <find>placement</find>
-      <find>left</find>
-      <find>was</find>
       <find>iter_down</find>
       <find>upper</find>
       <find>placeWord</find>
@@ -138,8 +117,15 @@
       <find>System.out.println</find>
       <find>--&gt;</find>
       <find>System.</find>
-      <find>sys</find>
       <find>lock</find>
+      <find>Everyone is</find>
+      <find>getWaiting</find>
+      <find>setMa</find>
+      <find>broadcast</find>
+      <find>sys</find>
+      <find>sendMes</find>
+      <find>Player</find>
+      <find>broadcas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,8 +139,8 @@
         <option value="$PROJECT_DIR$/reader.java" />
         <option value="$PROJECT_DIR$/Board.java" />
         <option value="$PROJECT_DIR$/gameClient.java" />
-        <option value="$PROJECT_DIR$/gameChatRoom.java" />
         <option value="$PROJECT_DIR$/ServerThread.java" />
+        <option value="$PROJECT_DIR$/gameChatRoom.java" />
       </list>
     </option>
   </component>
@@ -383,6 +369,13 @@
     <entry file="file://$PROJECT_DIR$/main.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/gamedata/test1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="55" lean-forward="true" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -395,25 +388,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/reader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2595">
-          <caret line="204" column="10" selection-start-line="204" selection-start-column="10" selection-end-line="204" selection-end-column="10" />
+        <state relative-caret-position="810">
+          <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamedata/test1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="55" lean-forward="true" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="274" column="21" lean-forward="true" selection-start-line="274" selection-start-column="21" selection-end-line="274" selection-end-column="21" />
+        <state relative-caret-position="375">
+          <caret line="131" column="4" lean-forward="true" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#234#263#0" expanded="true" />
@@ -424,18 +410,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gameClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="52" column="100" lean-forward="true" selection-start-line="52" selection-start-column="41" selection-end-line="52" selection-end-column="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameChatRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="600">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -444,8 +420,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ServerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+        <state relative-caret-position="525">
+          <caret line="188" column="46" selection-start-line="188" selection-start-column="46" selection-end-line="188" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameChatRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="164" column="29" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
